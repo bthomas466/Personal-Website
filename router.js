@@ -49,5 +49,7 @@ function user(request, response) {
     }
 }
 
+//Add fitbit API route
+
 module.exports.home = home;
 module.exports.user = user;
