@@ -1,0 +1,24 @@
+{
+  "name": "brandon-portfolio",
+  "version": "1.0.0",
+  "description": "personal sandbox/portfolio for projects and new tech",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bthomas466/Personal-Website.git"
+  },
+  "author": "Brandon Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bthomas466/Personal-Website/issues"
+  },
+  "homepage": "https://github.com/bthomas466/Personal-Website#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-sass": "^1.0.0"
+  }
+}
