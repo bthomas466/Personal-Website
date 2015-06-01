@@ -32,7 +32,8 @@ function user(request, response) {
                 avatarUrl: profileJSON.gravatar_url,
                 username: profileJSON.profile_name,
                 badges: profileJSON.badges.length,
-                javascriptPoints: profileJSON.points.JavaScript
+                javascriptPoints: profileJSON.points.JavaScript,
+                totalPoints: profileJSON.points.total
             }
             //Simple response
             renderer.view("index", values, response);
