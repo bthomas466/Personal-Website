@@ -28,6 +28,11 @@ function user(request, response) {
             //show profile
             //set last badge to badges array
             var lastBadge = profileJSON.badges;
+            //get courses from lastBadge
+            for(var i; i < lastBadge[lastBadge.length - 1].courses; i++) {
+                var courseTitle = lastBadge[lastBadge.length - 1].courses[i].title;
+                console.log(courseTitle);
+            }
             //Store the values which we need
             var values = {
                 avatarUrl: profileJSON.gravatar_url,
@@ -36,7 +41,8 @@ function user(request, response) {
                 javascriptPoints: profileJSON.points.JavaScript,
                 totalPoints: profileJSON.points.total,
                 lastBadge: profileJSON.badges[lastBadge.length - 1].name,
-                badgeImage: profileJSON.badges[lastBadge.length -1].icon_url
+                badgeImage: profileJSON.badges[lastBadge.length -1].icon_url,
+                badgeCourse: courseTitle
             }
             //Simple response
             renderer.view("index", values, response);
