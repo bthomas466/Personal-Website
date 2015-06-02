@@ -2,6 +2,22 @@ module.exports = function(grunt) {
     //Configure task(s)
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        uglify: {
+            dev: {
+                options: {
+                    beautify: true,
+                    mangle: true,
+                    compress: false,
+                    preserveComments: 'all'
+                },
+                src: 'src/js/*.js',
+                dest: 'js/script.min.js'
+            },
+            build: {
+                src: 'src/js/*.js',
+                dest: 'js/script.min.js'
+            }
+        },
         sass: {
             dev: {
                 options: {
@@ -21,10 +37,10 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            //js: {
-            //    file:['src/js/*.js'],
-            //    tasks['uglify:dev']
-            //}
+            js: {
+                files: ['src/js/*.js'],
+                tasks: ['uglify:dev']
+            },
             css: {
                 files: ['src/scss/**/*.scss'],
                 tasks: ['sass:dev']
@@ -34,7 +50,9 @@ module.exports = function(grunt) {
     //Load the plugins
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-browser-sync');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     //Register task(s)
-    grunt.registerTask('default', ['sass:dev']);
-    grunt.registerTask('build', ['sass:build'])
+    grunt.registerTask('default', ['uglify:dev', 'sass:dev']);
+    grunt.registerTask('build', ['uglify:build', 'sass:build'])
 };

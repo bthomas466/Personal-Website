@@ -26,14 +26,17 @@ function user(request, response) {
         //on "end"
         studentProfile.on("end", function(profileJSON) {
             //show profile
-
+            //set last badge to badges array
+            var lastBadge = profileJSON.badges;
             //Store the values which we need
             var values = {
                 avatarUrl: profileJSON.gravatar_url,
                 username: profileJSON.profile_name,
                 badges: profileJSON.badges.length,
                 javascriptPoints: profileJSON.points.JavaScript,
-                totalPoints: profileJSON.points.total
+                totalPoints: profileJSON.points.total,
+                lastBadge: profileJSON.badges[lastBadge.length - 1].name,
+                badgeImage: profileJSON.badges[lastBadge.length -1].icon_url
             }
             //Simple response
             renderer.view("index", values, response);
