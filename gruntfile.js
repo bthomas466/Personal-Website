@@ -36,6 +36,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+        htmlmin: {},
         watch: {
             js: {
                 files: ['src/js/*.js'],
@@ -52,6 +53,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     //Register task(s)
     grunt.registerTask('default', ['uglify:dev', 'sass:dev']);
     grunt.registerTask('build', ['uglify:build', 'sass:build'])
