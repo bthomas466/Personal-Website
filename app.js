@@ -2,7 +2,7 @@ var router = require("./router.js");
 var static = require("node-static");
 
 //Create web server with node
-var file = new static.Server();
+var file = new static.Server('./public');
 var http = require('http');
 http.createServer(function (request, response) {
     request.addListener('end', function() {
